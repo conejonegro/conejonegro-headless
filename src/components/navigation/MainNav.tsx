@@ -33,7 +33,7 @@ export async function MainNav() {
   });
 
   const menuItems = data.menus.nodes[0].menuItems.edges;
-  console.log("My menu Items", menuItems);
+  //console.log("My menu Items", menuItems);
 
   return (
     <nav>

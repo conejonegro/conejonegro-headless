@@ -1,5 +1,6 @@
 import client from "@/apollo-client"
 import { gql } from '@apollo/client';
+import { SanitizeHTML } from "@/utils/sanitizeHTML/SanitizeHTML";
 
 export const revalidate = 10; 
 export default async function Home() {
@@ -17,7 +18,7 @@ export default async function Home() {
 
    return (
      <div>
-       <h1> {data.pageBy.content}</h1>
+        <SanitizeHTML tag="h1" cleanHtml={data.pageBy.content} />
      </div>
    );
  }
