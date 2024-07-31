@@ -1,1 +1,0 @@
-export  Contacto  from "./page";
