@@ -40,7 +40,7 @@ export async function MainNav() {
       <ul className="flex gap-8 justify-center my-4">
         {menuItems.map((menu: MenuEdge) => {
           return (
-            <Link href={`${process.env.SITE_URL}${menu.node.uri}`}>
+            <Link href={`${process.env.SITE_URL}${menu.node.uri}`} key={menu.id}>
               <li key={menu.id}>{menu.node.label}</li>
             </Link>
           );
