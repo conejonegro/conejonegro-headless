@@ -9,6 +9,7 @@ export default async function Home() {
          query {
           pageBy(pageId: 12) {
             title
+            content
           }
        }
      `,
@@ -16,7 +17,7 @@ export default async function Home() {
 
    return (
      <div>
-       <h1> {data.pageBy.title}</h1>
+       <h1> {data.pageBy.content}</h1>
      </div>
    );
  }

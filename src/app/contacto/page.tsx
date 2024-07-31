@@ -8,8 +8,10 @@ export default async function Contacto(){
 
    return(
       <section>
-         <h1>{data.pageBy.title}</h1>
-         <h1>{data.pageBy.content}</h1>
+         <h1 className="text-3xl font-bold">
+            {data.pageBy.title}
+         </h1>
+         <p>{data.pageBy.content}</p>
         
       </section>
    )
