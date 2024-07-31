@@ -33,8 +33,8 @@ export default async function Cursos() {
       }
     `,
   });
-  console.log("Cursos1", data.cursos.nodes[0].featuredImage.node.title);
-  console.log("Cursos1", data.cursos.nodes[0].corusesFields.duracion);
+ // console.log("Cursos1", data.cursos.nodes[0].featuredImage.node.title);
+ // console.log("Cursos1", data.cursos.nodes[0].corusesFields.duracion);
   return (
     <div>
       <h1>Cursos</h1>
