@@ -1,5 +1,6 @@
 import client from "@/apollo-client";
 import { gql } from "@apollo/client";
+import Image from "next/image";
 import Link from "next/link";
 
 interface MenuItem {
@@ -37,7 +38,10 @@ export async function MainNav() {
 
   return (
     <nav>
-      <ul className="flex gap-8 justify-center my-4">
+      <ul className="flex gap-8 justify-center my-4 items-center">
+        <Link href="/">
+          <Image src="/static/conejoNegroLogo.png" alt="image" width={80} height={80}/>
+        </Link>
         {menuItems.map((menu: MenuEdge) => {
           return (
             <Link href={`${process.env.SITE_URL}${menu.node.uri}`} key={menu.id}>

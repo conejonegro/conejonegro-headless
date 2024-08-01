@@ -1,22 +1,20 @@
 import { createElement, HTMLAttributes } from "react";
-import sanitize from "sanitize-html"
+import sanitize from "sanitize-html";
 
-type htmlSanitizer = {
-   tag: string;
-   cleanHtml: string;
-} & HTMLAttributes<HTMLElement>
+type HtmlSanitizerProps = {
+  tag: string;
+  cleanHtml: string;
+} & HTMLAttributes<HTMLElement>;
 
-export function SanitizeHTML({tag, cleanHtml, ...rest}: htmlSanitizer){
+export function SanitizeHTML({ tag: tagName, cleanHtml, ...rest }: HtmlSanitizerProps) {
+  // Sanitiza el HTML
+  const sanitizedHtml = sanitize(cleanHtml, {
+    allowedTags: ['h1', 'p', 'strong', 'em', 'ul', 'li', 'a', "b"], 
+  });
 
-   const sanitizedHtml = sanitize(cleanHtml, {
-      allowedTags: []
-    });
-
-   return(
-      createElement(
-         tag,
-         {...rest},
-         sanitizedHtml
-      )
-   )
+  // Usa dangerouslySetInnerHTML para renderizar el HTML sanitizado
+  return createElement(
+    tagName,
+    { ...rest, dangerouslySetInnerHTML: { __html: sanitizedHtml } }
+  );
 }

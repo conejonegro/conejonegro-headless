@@ -1,6 +1,6 @@
 import client from "@/apollo-client"
 import { gql } from '@apollo/client';
-import { SanitizeHTML } from "@/utils/sanitizeHTML/SanitizeHTML";
+import {SanitizeHTML}  from "@/utils/sanitizeHTML/SanitizeHTML";
 
 export const revalidate = 10; 
 export default async function Home() {
@@ -16,9 +16,12 @@ export default async function Home() {
      `,
    });
 
+  const cleanestHTML = SanitizeHTML(data.pageBy.content)
+
    return (
-     <div>
-        <SanitizeHTML tag="h1" cleanHtml={data.pageBy.content} />
+     <div className="lg:container mx-auto px-4">
+        <SanitizeHTML tag="div" className="whitespace-normal" cleanHtml={data.pageBy.content} />
+       { /*<div dangerouslySetInnerHTML={{__html: data.pageBy.content}} />*/}
      </div>
    );
  }
