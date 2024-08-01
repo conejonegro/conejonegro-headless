@@ -1,9 +1,10 @@
+"use client";
+
 import client from "@/apollo-client";
 import { gql } from "@apollo/client";
 import Image from "next/image";
 import Link from "next/link";
-
-export const revalidate = 10;
+import { useParams } from "next/navigation";
 
 type CorusesFields = {
   duracion: string;
@@ -17,8 +18,10 @@ type Post = {
 };
 
 export default async function Cursos() {
-
-  const siteURL = process.env.SITE_URL
+  
+  const { curso } = useParams();
+  //console.log("SLUG from params", curso);
+  //console.log("SITEURL", siteURL)
 
   const { data } = await client.query({
     query: gql`
@@ -38,26 +41,30 @@ export default async function Cursos() {
             title
             id
             uri
+            slug
           }
         }
       }
     `,
   });
-   //console.log("Cursos1", data.cursos.nodes[0].featuredImage.node.uri);
-  // console.log("Cursos1", data.cursos.nodes[0].corusesFields.duracion);
+  //console.log("Cursos1", data.cursos.nodes[0].featuredImage.node.uri);
+  const mySlug = curso[1];
+  const foundData = data.cursos.nodes.find((curso) => curso.slug === mySlug);
+
   return (
     <div>
-      <h1>Cursos</h1>
+      <h1>{foundData.title}</h1>
       <div className="flex gap-8 justify-center items-center">
-        {data.cursos.nodes.map((curso: Post) => (
-          <Link href={`${siteURL}/${curso.uri}`}>
-            <div key={curso.id} className="border w-1/3 px-3 py-3">
-              <Image src={curso.featuredImage.node.mediaItemUrl} alt="curso poster" width="350" height="350"/>
-              <h2>{curso.title}</h2>
-              <p>{curso.corusesFields.duracion} Horas</p>
-            </div>
-          </Link>
-        ))}
+        <div className="border w-1/3 px-3 py-3">
+          <Image
+            src={foundData.featuredImage.node.mediaItemUrl}
+            alt="curso poster"
+            width="350"
+            height="350"
+          />
+          <h2>{foundData.title}</h2>
+          <p>{foundData.corusesFields.duracion} Horas</p>
+        </div>
       </div>
     </div>
   );
