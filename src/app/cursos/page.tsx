@@ -46,15 +46,15 @@ export default async function Cursos() {
    //console.log("Cursos1", data.cursos.nodes[0].featuredImage.node.uri);
   // console.log("Cursos1", data.cursos.nodes[0].corusesFields.duracion);
   return (
-    <div>
-      <h1>Cursos</h1>
-      <div className="flex gap-8 justify-center items-center">
+    <div className="container mx-auto">
+      <h1 className="font-bold">Cursos</h1>
+      <div className="grid grid-cols-3 gap-4 mt-4">
         {data.cursos.nodes.map((curso: Post) => (
-          <Link href={`${siteURL}/${curso.uri}`}>
-            <div key={curso.id} className="border w-1/3 px-3 py-3">
+          <Link href={`${siteURL}/${curso.uri}`} className=" ">
+            <div key={curso.id} className="border px-3 py-3">
               <Image src={curso.featuredImage.node.mediaItemUrl} alt="curso poster" width="350" height="350"/>
               <h2>{curso.title}</h2>
-              <p>{curso.corusesFields.duracion} Horas</p>
+              <p>{curso.corusesFields.duracion} mes de Practica</p>
             </div>
           </Link>
         ))}

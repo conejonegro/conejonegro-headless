@@ -9,7 +9,7 @@ type HtmlSanitizerProps = {
 export function SanitizeHTML({ tag: tagName, cleanHtml, ...rest }: HtmlSanitizerProps) {
   // Sanitiza el HTML
   const sanitizedHtml = sanitize(cleanHtml, {
-    allowedTags: ['h1', 'p', 'strong', 'em', 'ul', 'li', 'a', "b"], 
+    allowedTags: ['h1', "h2", "h3", 'p', 'strong', 'em', 'ul', 'li', 'a', "b"], 
   });
 
   // Usa dangerouslySetInnerHTML para renderizar el HTML sanitizado

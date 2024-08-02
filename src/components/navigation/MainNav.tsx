@@ -40,7 +40,7 @@ export async function MainNav() {
     <nav>
       <ul className="flex gap-8 justify-center my-4 items-center">
         <Link href="/">
-          <Image src="/static/conejoNegroLogo.png" alt="image" width={80} height={80}/>
+          <Image src="/static/blackRabbit.png" alt="image" width={80} height={80}/>
         </Link>
         {menuItems.map((menu: MenuEdge) => {
           return (
