@@ -50,7 +50,7 @@ export default async function Cursos() {
       <h1 className="font-bold">Cursos</h1>
       <div className="grid grid-cols-3 gap-4 mt-4">
         {data.cursos.nodes.map((curso: Post) => (
-          <Link href={`${siteURL}/${curso.uri}`} className=" ">
+          <Link href={`${siteURL}${curso.uri}`} className=" ">
             <div key={curso.id} className="border px-3 py-3">
               <Image src={curso.featuredImage.node.mediaItemUrl} alt="curso poster" width="350" height="350"/>
               <h2>{curso.title}</h2>

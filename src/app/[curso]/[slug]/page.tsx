@@ -1,10 +1,6 @@
-"use client";
-
 import client from "@/apollo-client";
 import { gql } from "@apollo/client";
 import Image from "next/image";
-import Link from "next/link";
-import { useParams } from "next/navigation";
 
 type CorusesFields = {
   duracion: string;
@@ -17,10 +13,10 @@ type Post = {
   corusesFields: CorusesFields;
 };
 
-export default async function Cursos() {
+export default async function Cursos({ params }: { params: { slug: string } }) {
   
-  const { curso } = useParams();
-  //console.log("SLUG from params", curso);
+  //const  {curso}  = useParams();
+  console.log("SLUG from params", params);
   //console.log("SITEURL", siteURL)
 
   const { data } = await client.query({
@@ -48,8 +44,11 @@ export default async function Cursos() {
     `,
   });
   //console.log("Cursos1", data.cursos.nodes[0].featuredImage.node.uri);
-  const mySlug = curso[1];
+  const mySlug = params.slug;
+  console.log("Slug", mySlug);
+  console.log("solo dos cursos?", data.cursos.nodes);
   const foundData = data.cursos.nodes.find((curso) => curso.slug === mySlug);
+  console.log("foundData", foundData)
 
   return (
     <div>
