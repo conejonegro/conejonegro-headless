@@ -37,6 +37,7 @@ export async function MainNav() {
   //console.log("My menu Items", menuItems);
 
   return (
+    
     <nav>
       <ul className="flex gap-8 justify-center my-4 items-center">
         <Link href="/">
@@ -50,6 +51,7 @@ export async function MainNav() {
           );
         })}
       </ul>
+      
     </nav>
   );
 }

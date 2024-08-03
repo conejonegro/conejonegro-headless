@@ -16,7 +16,7 @@ type Post = {
 export default async function Cursos({ params }: { params: { slug: string } }) {
   
   //const  {curso}  = useParams();
-  console.log("SLUG from params", params);
+  //console.log("SLUG from params", params);
   //console.log("SITEURL", siteURL)
 
   const { data } = await client.query({
@@ -45,10 +45,10 @@ export default async function Cursos({ params }: { params: { slug: string } }) {
   });
   //console.log("Cursos1", data.cursos.nodes[0].featuredImage.node.uri);
   const mySlug = params.slug;
-  console.log("Slug", mySlug);
-  console.log("solo dos cursos?", data.cursos.nodes);
+  //console.log("Slug", mySlug);
+  //console.log("solo dos cursos?", data.cursos.nodes);
   const foundData = data.cursos.nodes.find((curso) => curso.slug === mySlug);
-  console.log("foundData", foundData)
+  //console.log("foundData", foundData)
 
   return (
     <div>

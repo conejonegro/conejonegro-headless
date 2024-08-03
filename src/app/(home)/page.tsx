@@ -16,7 +16,7 @@ export default async function Home() {
      `,
    });
 
-  const cleanestHTML = SanitizeHTML(data.pageBy.content)
+ // const cleanestHTML = SanitizeHTML(data.pageBy.content)
 
    return (
      <div className="lg:container mx-auto px-4">
