@@ -28,7 +28,7 @@ export default async function PathPage({ params }: { params: { slug: string } })
   }
   return (
     
-    <div>
+    <div className="contaier mx-auto max-w-5xl">
       <h1>{foundData?.title}</h1>
       <SanitizeHTML tag="div" cleanHtml={foundData?.content} />
     </div>
