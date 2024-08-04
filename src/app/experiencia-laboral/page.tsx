@@ -4,10 +4,6 @@ import { SanitizeHTML } from "@/utils/sanitizeHTML/SanitizeHTML";
 
 export const revalidate = 10;
 
-type CorusesFields = {
-  duracion: string;
-};
-
 type Post = {
   id: number;
   title: String;
@@ -15,7 +11,6 @@ type Post = {
 };
 
 export default async function Cursos() {
-  const siteURL = process.env.SITE_URL;
 
   const { data } = await client.query({
     query: gql`
@@ -31,8 +26,7 @@ export default async function Cursos() {
       }
     `,
   });
-  //console.log("Cursos1", data.cursos.nodes[0].featuredImage.node.uri);
-  // console.log("Cursos1", data.cursos.nodes[0].corusesFields.duracion);
+
   return (
     <div className="container mx-auto">
       <h1 className="font-bold">Expericencia Laboral</h1>
