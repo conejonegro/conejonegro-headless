@@ -2,11 +2,18 @@ import client from "@/apollo-client";
 import { gql } from "@apollo/client";
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
+
 
 export const revalidate = 10;
 
 type CorusesFields = {
   duracion: string;
+};
+
+export const metadata: Metadata = {
+  title: "Cursos | conejoNegro ",
+  description: "Explora los cursos de desarrollo web completados por Conejo Negro. Formación avanzada en React.js, Next.js, WordPress y más.",
 };
 
 type Post = {

@@ -1,6 +1,7 @@
 import client from "@/apollo-client";
 import { gql } from "@apollo/client";
 import { SanitizeHTML } from "@/utils/sanitizeHTML/SanitizeHTML";
+import type { Metadata } from "next";
 
 export const revalidate = 10;
 
@@ -9,6 +10,11 @@ type Post = {
   title: String;
   content: string
 };
+
+export const metadata = {
+    title: "Experiencia Laboral | conejoNegro",
+    description: "Revisa la experiencia laboral de Conejo Negro, desarrollador web con trayectoria en proyectos destacados con React.js, Next.js y WordPress."
+}
 
 export default async function Cursos() {
 

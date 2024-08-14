@@ -17,6 +17,7 @@ export default async function Home() {
    });
 
  // const cleanestHTML = SanitizeHTML(data.pageBy.content)
+ console.log("my content", data.pageBy.content)
 
    return (
      <div className="contaier mx-auto max-w-7xl px-4">

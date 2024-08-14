@@ -1,5 +1,11 @@
 import  contactoApiCall  from "@/graphql/contactoApiCall";
 import { SanitizeHTML } from "@/utils/sanitizeHTML/SanitizeHTML";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+   title: "Contacto | conejoNegro ",
+   description: "Contacta a Conejo Negro, desarrollador web desde Guadalajara, Jalisco, México. Envía un mensaje para consultas, colaboraciones y proyectos.",
+ };
 
 export const revalidate = 10; 
 export default async function Contacto(){
