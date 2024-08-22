@@ -7,7 +7,7 @@ export const revalidate = 10;
 
 export default async function PathPage({params,}: {params: { path: string };
 }) {
-  console.log("mis params",params)
+  //console.log("mis params",params)
   const mySlug = params.path;
   const { data } = await client.query({
     query: gql`

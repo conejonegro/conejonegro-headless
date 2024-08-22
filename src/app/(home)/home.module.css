@@ -1,0 +1,8 @@
+.homeContainer{
+   display: flex;
+   max-width: 85%;
+   margin: 0 auto;
+   align-items: flex-start;
+   justify-content: space-between;
+
+}
