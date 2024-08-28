@@ -29,8 +29,11 @@ export default async function Home() {
   });
 
   // const cleanestHTML = SanitizeHTML(data.pageBy.content)
-  console.log("my content", data.homePage.homepage.userphoto.node.mediaItemUrl);
+  //console.log("my content", data.homePage.homepage.userphoto.node.mediaItemUrl);
   const photoURL = data.homePage.homepage.userphoto.node.mediaItemUrl;
+
+  const localURI = process.env.GRAPHQL_ENDPOINT;
+console.log("mylocaluri", localURI)
 
   return (
     <div className={styles.homeContainer}>
