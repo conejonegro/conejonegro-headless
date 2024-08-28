@@ -5,6 +5,8 @@ const nextConfig = {
         {
           protocol: 'http',
           hostname: 'conejonegro.local',
+          protocol: 'https',
+          hostname: 'https://mcseguros.com.mx/portfolio',
         },
       ],
     },
