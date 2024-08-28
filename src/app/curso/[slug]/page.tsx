@@ -6,6 +6,10 @@ type CorusesFields = {
   duracion: string;
 };
 
+type Curso = {
+  slug: string;
+}
+
 type Post = {
   id: number;
   title: String;
@@ -47,7 +51,7 @@ export default async function Cursos({ params }: { params: { slug: string } }) {
   const mySlug = params.slug;
   //console.log("Slug", mySlug);
   //console.log("solo dos cursos?", data.cursos.nodes);
-  const foundData = data.cursos.nodes.find((curso) => curso.slug === mySlug);
+  const foundData = data.cursos.nodes.find((curso: Curso) => curso.slug === mySlug);
   //console.log("foundData", foundData)
 
   return (

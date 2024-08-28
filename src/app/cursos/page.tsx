@@ -11,6 +11,11 @@ type CorusesFields = {
   duracion: string;
 };
 
+type FeaturedImage = {
+  node: FeaturedImage;
+  mediaItemUrl: string;
+};
+
 export const metadata: Metadata = {
   title: "Cursos | conejoNegro ",
   description: "Explora los cursos de desarrollo web completados por Conejo Negro. Formación avanzada en React.js, Next.js, WordPress y más.",
@@ -19,8 +24,9 @@ export const metadata: Metadata = {
 type Post = {
   id: number;
   title: String;
-  featuredImage: string;
+  featuredImage: FeaturedImage;
   corusesFields: CorusesFields;
+  uri: string;
 };
 
 export default async function Cursos() {
