@@ -1,7 +1,9 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 
+const localURI = process.env.GRAPHQL_ENDPOINT;
+
 const client = new ApolloClient({
-  uri: 'https://mcseguros.com.mx/portfolio/graphql', // Reemplaza con la URL de tu endpoint de WPGraphQL
+  uri: localURI,
   cache: new InMemoryCache(),
 });
 
