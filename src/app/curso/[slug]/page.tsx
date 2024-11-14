@@ -1,7 +1,6 @@
 import client from "@/apollo-client";
 import { gql } from "@apollo/client";
-import Image from "next/image";
-import { useEffect } from "react";
+import { SanitizeHTML } from "@/utils/sanitizeHTML/SanitizeHTML";
 
 type CorusesFields = {
   duracion: string;
@@ -74,7 +73,7 @@ export default async function Cursos({ params }: { params: { slug: string } }) {
             }`}
           </p>
           <p className="relative">
-            {`${foundData.corusesFields.modulosDelCurso}`}
+            <SanitizeHTML tag="div" cleanHtml={foundData.corusesFields.modulosDelCurso} />
           </p>
         </div>
       </div>
