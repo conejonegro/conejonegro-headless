@@ -59,9 +59,10 @@ export default async function Cursos() {
   //console.log("Cursos", data.cursos.nodes);
   // console.log("Cursos1", data.cursos.nodes[0].corusesFields.duracion);
   return (
-    <div className="container mx-auto max-w-screen-xl">
-      <h1 className="font-bold">Cursos</h1>
-      <div className="grid grid-cols-3 gap-4 mt-4">
+    <div className="container mx-auto max-w-screen-xl p-4">
+        <h1 className="font-bold">Cursos</h1>
+      <div className="grid grid-cols-1 gap-4 mt-4 p- md:grid-cols-2 lg:grid-cols-3 ">
+      
         {data.cursos.nodes.map((curso: Post) => (
           <Link href={`${siteURL}${curso.uri}`} key={curso.id} className=" ">
             <div key={curso.id} className="border px-3 py-3 relative h-80 w-full">
@@ -71,6 +72,7 @@ export default async function Cursos() {
                 fill={true}
                 object-fit="contain"
                 priority={true} 
+                className="filter brightness-[.25] -z-10"
               />
               <h2>{curso.title}</h2>
               <p>

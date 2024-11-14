@@ -1,6 +1,7 @@
 import client from "@/apollo-client";
 import { gql } from "@apollo/client";
 import Image from "next/image";
+import { useEffect } from "react";
 
 type CorusesFields = {
   duracion: string;
@@ -8,7 +9,7 @@ type CorusesFields = {
 
 type Curso = {
   slug: string;
-}
+};
 
 type Post = {
   id: number;
@@ -18,7 +19,6 @@ type Post = {
 };
 
 export default async function Cursos({ params }: { params: { slug: string } }) {
-  
   //const  {curso}  = useParams();
   //console.log("SLUG from params", params);
   //console.log("SITEURL", siteURL)
@@ -37,6 +37,7 @@ export default async function Cursos({ params }: { params: { slug: string } }) {
             content
             corusesFields {
               duracion
+              modulosDelCurso
             }
             title
             id
@@ -47,27 +48,34 @@ export default async function Cursos({ params }: { params: { slug: string } }) {
       }
     `,
   });
-  //console.log("Cursos1", data.cursos.nodes[0].featuredImage.node.uri);
+  console.log("advanced custom fields", data.cursos.nodes);
   const mySlug = params.slug;
   //console.log("Slug", mySlug);
   //console.log("solo dos cursos?", data.cursos.nodes);
-  const foundData = data.cursos.nodes.find((curso: Curso) => curso.slug === mySlug);
+  const foundData = data.cursos.nodes.find(
+    (curso: Curso) => curso.slug === mySlug
+  );
   //console.log("foundData", foundData)
 
   return (
-    <div>
-      <h1>{foundData.title}</h1>
-      <div className="flex gap-8 justify-center items-center">
-        <div className="border w-1/3 px-3 py-3 relative h-80">
-          <Image
-            src={foundData.featuredImage.node.mediaItemUrl}
-            alt="curso poster"
-            fill={true}
-            style={{objectFit: "cover"}}
-            sizes="(max-width: 768px)"
-          />
-          <h2 className="relative">{foundData.title}</h2>
-          <p className="relative"> {`${foundData.corusesFields.duracion} ${foundData.corusesFields.duracion === "1" ? "mes de práctica" : "meses de práctica"}`}</p>
+    <div className="container mx-auto p-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Columna Izquierda */}
+        <div>
+          <h1>{foundData.title}</h1>
+        </div>
+        <div>
+          <p className="relative">
+            {" "}
+            {`${foundData.corusesFields.duracion} ${
+              foundData.corusesFields.duracion === "1"
+                ? "mes de práctica"
+                : "meses de práctica"
+            }`}
+          </p>
+          <p className="relative">
+            {`${foundData.corusesFields.modulosDelCurso}`}
+          </p>
         </div>
       </div>
     </div>
