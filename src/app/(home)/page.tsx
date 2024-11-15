@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100">
       <main className="container mx-auto px-4 py-8">
-        <header className="text-center mb-12 flex justify-between">
+        <header className="text-center mb-4 items-center gap-4 flex flex-col-reverse md:flex md:justify-between">
           <div>
             <h1 className="text-4xl font-bold text-gray-800 mb-2">Luis Antonio Rosales Ochoa</h1>
             <p className="text-xl text-gray-600">Web Engineering and Management Professional</p>
