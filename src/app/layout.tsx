@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import  {Montserrat}  from 'next/font/google'
 import "./globals.css";
-import { MainNav } from "@/components/navigation/MainNav";
 import Footer from "@/components/footer/Footer";
 import NewNav from "@/components/newNav/NewNav";
 
@@ -23,7 +22,6 @@ export default function RootLayout({
   return (
     <html lang="es" className={montserrat.className}>
       <body>
-        <MainNav />
         <NewNav />
         {children}
         <Footer/>
