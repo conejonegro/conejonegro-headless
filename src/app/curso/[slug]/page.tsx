@@ -47,7 +47,7 @@ export default async function Cursos({ params }: { params: { slug: string } }) {
       }
     `,
   });
-  console.log("advanced custom fields", data.cursos.nodes);
+ // console.log("advanced custom fields", data.cursos.nodes);
   const mySlug = params.slug;
   //console.log("Slug", mySlug);
   //console.log("solo dos cursos?", data.cursos.nodes);

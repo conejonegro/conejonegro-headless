@@ -5,7 +5,10 @@ import NotFound from "../not-found";
 
 export const revalidate = 10;
 
-export default async function PathPage({params,}: {params: { path: string };
+export default async function PathPage({
+  params,
+}: {
+  params: { path: string };
 }) {
   //console.log("mis params",params)
   const mySlug = params.path;
