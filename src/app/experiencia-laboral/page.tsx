@@ -53,8 +53,9 @@ export default async function Cursos() {
 
   return (
     <div className="container mx-auto mt-8">
+      
+      <div className="grid grid-rows gap-4 mt-4 justify-center">
       <h1 className="font-bold mb-4">Expericencia Laboral</h1>
-      <div className="grid grid-rows gap-4 mt-4">
         {data.trabajos.nodes.map((trabajo: Post) => (
           <div key={trabajo.id} className="border px-3 py-3 max-w-5xl">
             <Link className="underline mb-4 block" href={trabajo.trabajosCustomFields.companyUrl || "#"} target="_blank"> <h2>{trabajo.title}</h2></Link>
